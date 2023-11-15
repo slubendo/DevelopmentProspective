@@ -3,6 +3,7 @@ import ScrollScholarshipCardSimple from './components/organisms/scrollscholarshi
 import BlockHeader2 from './components/atoms/block/block-header-2';
 import GreetingCard from './components/organisms/greetingcard';
 import scholarshipData from '@/db/fake-schol.json';
+import ButtonActionText from './components/atoms/button/button-action-text';
 
 export default function Home() {
   
@@ -26,6 +27,7 @@ export default function Home() {
       {/* Scholarship header */}
       <div className="flex justify-center mx-auto w-[90%]">
         <BlockHeader2 header="Scholarships For You" />
+        <ButtonActionText href="/form" text="Search" />
       </div>
 
       <ScrollScholarshipCardSimple list={listTest} />
