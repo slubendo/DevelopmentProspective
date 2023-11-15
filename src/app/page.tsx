@@ -25,7 +25,7 @@ export default function Home() {
       <GreetingCard />
 
       {/* Scholarship header */}
-      <div className="flex justify-center mx-auto w-[90%]">
+      <div className="flex flex-col justify-center mx-auto w-[90%]">
         <BlockHeader2 header="Scholarships For You" />
         <ButtonActionText href="/form" text="Search" />
       </div>

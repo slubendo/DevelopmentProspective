@@ -11,6 +11,6 @@ export async function sendJSON(content:UserForm) {
   const requestJSON = JSON.stringify(request)
   console.log(requestJSON)
   
-  revalidatePath("/form")
-  redirect(`/form`)
+  revalidatePath("/")
+  redirect(`/`)
 }
