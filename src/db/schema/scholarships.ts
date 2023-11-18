@@ -4,7 +4,7 @@ import { users } from "./users"
 
 export const scholarships = pgTable("scholarships", {
     id: serial("id").primaryKey(),
-    userId: text("user_id").notNull().references(() => users.id),
+    userId: text("userId").notNull().references(() => users.id),
     jsonData: text("jsonData").notNull(),
     isApplied: boolean("isApplied").notNull(),
 })
