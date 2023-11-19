@@ -16,6 +16,7 @@ export default async function Home() {
   // Process the data as per requirements
   const listTest = scholarshipData.map(item => {
     return {
+      id: 1,
       title: item.title,
       content: item.content,
       award: item.award,

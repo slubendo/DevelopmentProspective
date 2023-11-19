@@ -7,6 +7,7 @@ export default function Home() {
 
   const listTest = scholarshipData.map(item => {
     return {
+      id: 1,
       title: item.title,
       content: item.content,
       award: item.award,

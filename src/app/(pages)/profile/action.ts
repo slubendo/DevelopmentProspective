@@ -7,6 +7,7 @@ async function getAllScholarships(userId: string) {
 
     const list = response.map(item => {
         return {
+            id: item.id,
             jsonData: item.jsonData,
             isApplied: item.isApplied
         };
@@ -20,7 +21,15 @@ export async function getAppliedScholarships(userId: string) {
 
     let appliedList = list.map(item => {
         if(item.isApplied) {
-            return JSON.parse(item.jsonData);
+
+            const data = JSON.parse(item.jsonData);
+
+            const scholarship = {
+                id: item.id,
+                ...data,
+            }
+
+            return scholarship;
         }
     })
 
@@ -36,7 +45,14 @@ export async function getSavedScholarships(userId: string) {
 
     let savedList = list.map(item => {
         if(!item.isApplied) {
-            return JSON.parse(item.jsonData);
+            const data = JSON.parse(item.jsonData);
+
+            const scholarship = {
+                id: item.id,
+                ...data,
+            }
+
+            return scholarship;
         }
     })
 

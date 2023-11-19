@@ -27,6 +27,7 @@ export default async function ProfilePage() {
 
   listApplied = listApplied.map(item => {
     return {
+      id: item.id,
       title: item.title,
       content: item.content,
       award: item.award,
@@ -39,6 +40,7 @@ export default async function ProfilePage() {
 
   listSaved = listSaved.map(item => {
     return {
+      id: item.id,
       title: item.title,
       content: item.content,
       award: item.award,
