@@ -1,5 +1,5 @@
 import ProfileUserCard from '@/app/components/organisms/profileusercard'
-import TabsScholarshipCardSimple from '@/app/components/organisms/tabsscholarshipcardsimple'
+import TabsScholarshipCardProfile from '@/app/components/organisms/tabsscholarshipcardprofile'
 import scholarshipList from '@/db/fake-schol.json'
 
 import { auth } from '@/auth'
@@ -58,7 +58,7 @@ export default async function ProfilePage() {
         <ProfileUserCard />
       </div>
       <div>
-        <TabsScholarshipCardSimple listSaved={listSaved} listApplied={listApplied} />
+        <TabsScholarshipCardProfile listSaved={listSaved} listApplied={listApplied} />
       </div>
     </div>
   )
