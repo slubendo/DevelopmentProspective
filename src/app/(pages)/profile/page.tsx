@@ -1,12 +1,31 @@
 import ProfileUserCard from '@/app/components/organisms/profileusercard'
-import ScrollScholarshipcardSimple from '@/app/components/organisms/scrollscholarshipcardsimple'
-import BlockHeader2 from '@/app/components/atoms/block/block-header-2'
 import TabsScholarshipCardSimple from '@/app/components/organisms/tabsscholarshipcardsimple'
 import scholarshipList from '@/db/fake-schol.json'
 
-export default function ProfilePage() {
+import { auth } from '@/auth'
+import { getAppliedScholarships, getSavedScholarships } from './action'
 
-  const listTest = scholarshipList.map(item => {
+export default async function ProfilePage() {
+
+  const session = await auth();
+  
+  let listApplied = [];
+  let listSaved = [];
+  let userId;
+
+  if(session) {
+    userId = session.user.id;
+  }
+
+  if(userId) {
+    listApplied = await getAppliedScholarships(userId);
+    listSaved = await getSavedScholarships(userId)
+  }
+
+  console.log(listApplied);
+  console.log(listSaved);
+
+  listApplied = listApplied.map(item => {
     return {
       title: item.title,
       content: item.content,
@@ -16,12 +35,19 @@ export default function ProfilePage() {
       src: item.src,
       alt: item.alt
     }
-  }
-  )
+  })
 
-  const listTest1 = [listTest[0], listTest[1]]
-
-  const listTest2 = [listTest[2], listTest[3], listTest[4]]
+  listSaved = listSaved.map(item => {
+    return {
+      title: item.title,
+      content: item.content,
+      award: item.award,
+      deadline: item.deadline,
+      href: item.href,
+      src: item.src,
+      alt: item.alt
+    }
+  })
 
   return (
     <div className="flex flex-col rounded-xl mx-auto w-full 
@@ -30,7 +56,7 @@ export default function ProfilePage() {
         <ProfileUserCard />
       </div>
       <div>
-        <TabsScholarshipCardSimple listSaved={listTest1} listApplied={listTest2} />
+        <TabsScholarshipCardSimple listSaved={listSaved} listApplied={listApplied} />
       </div>
     </div>
   )
