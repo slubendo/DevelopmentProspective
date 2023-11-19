@@ -2,6 +2,12 @@ import { db } from '@/db'
 import { scholarships } from '@/db/schema/scholarships'
 import { eq } from 'drizzle-orm/mysql-core/expressions'
 
+async function getScholarshipById(id: number) {
+    const response = await db.select().from(scholarships).where(eq(scholarships.id, id))
+
+    return response
+}
+
 async function getAllScholarships(userId: string) {
     const response = await db.select().from(scholarships).where(eq(scholarships.userId, userId))
 
@@ -61,4 +67,21 @@ export async function getSavedScholarships(userId: string) {
     })
 
     return savedList;
+}
+
+export async function toggleScholarshipApplicationStatus(id: number) {
+    const scholarship = await getScholarshipById(id);
+
+    if(scholarship) {
+        console.log(scholarship[0].isApplied);
+    }
+    
+}
+
+export async function deleteScholarshipFromProfile(id: number) {
+    const scholarship = await getScholarshipById(id);
+
+    if(scholarship) {
+        console.log(scholarship[0].userId)
+    }
 }

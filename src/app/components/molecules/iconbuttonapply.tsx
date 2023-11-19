@@ -14,7 +14,7 @@ export default function IconButtonApply(props: {id: number, isApplied: boolean, 
         )
     } else {
         return (
-            <ButtonActionIconWhite id={props.id}>
+            <ButtonActionIconWhite id={props.id} onClick={props.onClick}>
                 <StarEmptyIcon />
             </ButtonActionIconWhite>
         )
