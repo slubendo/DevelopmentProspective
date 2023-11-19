@@ -2,7 +2,7 @@ import ScholarshipCardSimple from "./scholarshipcardsimple";
 import ScholarshipCardProfile from "./scholarshipcardprofile";
 import ContainerFlex from "../atoms/container/container-flex";
 
-export type Scholarship = { id: number, title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string }
+export type Scholarship = { id: number, title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string, isApplied: boolean }
 
 export default function ScrollScholarshipcardProfile(props: { list: Scholarship[] }) {
 
@@ -30,6 +30,7 @@ export default function ScrollScholarshipcardProfile(props: { list: Scholarship[
               award={item.award}
               deadline={item.deadline}
               href={item.href}
+              isApplied={item.isApplied}
             />
           </div>)}
 

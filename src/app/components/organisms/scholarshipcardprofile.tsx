@@ -2,9 +2,10 @@ import TitleBlock from "../molecules/titleblock";
 import ContainerCard from "../atoms/container/container-card";
 import ValuesBlock from "../molecules/valuesblock";
 import ButtonActionText from "../atoms/button/button-action-text";
+import IconButtonDelete from "../molecules/iconbuttondelete";
+import IconButtonApply from "../molecules/iconbuttonapply";
 
-
-export default function ScholarshipCardProfile(props: { id: number, title: string, content: string, award: number | string, deadline: string, href: string }) {
+export default function ScholarshipCardProfile(props: { id: number, title: string, content: string, award: number | string, deadline: string, href: string, isApplied: boolean }) {
 
   //we'll need a details button as well as the whole icon thingy too. This icon thing should have some sort of bookmark icon.
 
@@ -13,6 +14,7 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
   //should have a flexrow or a flexcolumn set up that you can place all of these scholarship cards into.
   //navbar molecule should be adjusted. Right now, it clips shit up, which ain't great.
   //should get the svgs from the figma...somehow.
+
   let value;
 
   if (typeof props.award == "number") {
@@ -20,6 +22,17 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
   } else {
     value = "$" + props.award;
   }
+
+    //so here s where we actually create the functions for the onclicks of the buttons.
+    //just note that they'll be tunneling down fairly deep
+
+    function handleDelete(e: any) {
+        console.log("Delete Triggered");
+    }
+
+    function handleApplyToggle(e: any) {
+        console.log("Apply Status Toggled")
+    }
 
   return (
     <ContainerCard>
@@ -35,7 +48,8 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
         </div>
 
         <div className="w-1/5">
-          <p>Applied and Delete</p>
+          <IconButtonApply id={props.id} isApplied={props.isApplied} onClick={handleApplyToggle} />
+          <IconButtonDelete id={props.id} onClick={handleDelete} />
         </div>
       </div>
 

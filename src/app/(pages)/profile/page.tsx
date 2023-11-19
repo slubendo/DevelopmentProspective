@@ -34,7 +34,8 @@ export default async function ProfilePage() {
       deadline: item.deadline,
       href: item.href,
       src: item.src,
-      alt: item.alt
+      alt: item.alt,
+      isApplied: true
     }
   })
 
@@ -47,7 +48,8 @@ export default async function ProfilePage() {
       deadline: item.deadline,
       href: item.href,
       src: item.src,
-      alt: item.alt
+      alt: item.alt,
+      isApplied: false,
     }
   })
 

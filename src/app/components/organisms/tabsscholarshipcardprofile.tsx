@@ -1,7 +1,7 @@
 "use client"
 
 import ScrollScholarshipcardProfile from "./scrollscholarshipcardprofile";
-import { Scholarship } from "./scrollscholarshipcardsimple";
+import { Scholarship } from "./scrollscholarshipcardprofile";
 import TabContainer from "../atoms/tab/tab-container";
 import TabButton from "../atoms/tab/tab-button";
 
