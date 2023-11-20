@@ -23,17 +23,6 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
     value = "$" + props.award;
   }
 
-    //so here s where we actually create the functions for the onclicks of the buttons.
-    //just note that they'll be tunneling down fairly deep
-
-    function handleDelete(e: any) {
-        console.log("Delete Triggered");
-    }
-
-    function handleApplyToggle(e: any) {
-        console.log("Apply Status Toggled")
-    }
-
   return (
     <ContainerCard>
 
@@ -48,8 +37,8 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
         </div>
 
         <div className="w-1/5">
-          <IconButtonApply id={props.id} isApplied={props.isApplied} onClick={handleApplyToggle} />
-          <IconButtonDelete id={props.id} onClick={handleDelete} />
+          <IconButtonApply id={props.id} isApplied={props.isApplied} />
+          <IconButtonDelete id={props.id} />
         </div>
       </div>
 

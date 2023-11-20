@@ -2,6 +2,8 @@ import ProfileUserCard from '@/app/components/organisms/profileusercard'
 import TabsScholarshipCardProfile from '@/app/components/organisms/tabsscholarshipcardprofile'
 import scholarshipList from '@/db/fake-schol.json'
 
+import { revalidatePath } from 'next/cache'
+
 import { auth } from '@/auth'
 import { getAppliedScholarships, getSavedScholarships } from './action'
 
@@ -52,6 +54,8 @@ export default async function ProfilePage() {
       isApplied: false,
     }
   })
+
+  revalidatePath("/profile")
 
   return (
     <div className="flex flex-col rounded-xl mx-auto w-full 

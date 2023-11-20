@@ -2,6 +2,9 @@ import { db } from '@/db'
 import { scholarships } from '@/db/schema/scholarships'
 import { eq } from 'drizzle-orm/mysql-core/expressions'
 
+import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
+
 async function getScholarshipById(id: number) {
     const response = await db.select().from(scholarships).where(eq(scholarships.id, id))
 
@@ -69,19 +72,26 @@ export async function getSavedScholarships(userId: string) {
     return savedList;
 }
 
-export async function toggleScholarshipApplicationStatus(id: number) {
+export async function toggleScholarshipApplicationStatus(id: number, userId: string) {
     const scholarship = await getScholarshipById(id);
 
-    if(scholarship) {
-        console.log(scholarship[0].isApplied);
+    if(scholarship && scholarship[0].userId == userId) {
+        await db.update(scholarships)
+            .set({isApplied: !scholarship[0].isApplied})
+            .where(eq(scholarships.id, scholarship[0].id))
+
+        revalidatePath("/profile")
     }
     
 }
 
-export async function deleteScholarshipFromProfile(id: number) {
+export async function deleteScholarshipFromProfile(id: number, userId: string) {
     const scholarship = await getScholarshipById(id);
 
-    if(scholarship) {
-        console.log(scholarship[0].userId)
+    if(scholarship && scholarship[0].userId == userId) {
+        await db.delete(scholarships)
+           .where(eq(scholarships.id, scholarship[0].id))
+        
+        revalidatePath("/profile")
     }
 }

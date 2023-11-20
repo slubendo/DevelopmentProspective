@@ -4,19 +4,27 @@ import ButtonActionIconWhite from "../atoms/button/button-action-icon-white"
 import StarEmptyIcon from "../atoms/icon-components/star-empty-icon"
 import StarFilledIcon from "../atoms/icon-components/star-filled-icon"
 
-export default function IconButtonApply(props: {id: number, isApplied: boolean, onClick: MouseEventHandler}) {
+import Link from "next/link"
+
+export default function IconButtonApply(props: {id: number, isApplied: boolean}) {
+
+    const url = "/profile/toggle-apply/" + String(props.id);
 
     if(props.isApplied) {
         return (
-            <ButtonActionIconBlue id={props.id} onClick={props.onClick}>
+            <Link href={url}>
+            <ButtonActionIconBlue id={props.id}>
                 <StarFilledIcon />
             </ButtonActionIconBlue>
+            </Link>
         )
     } else {
         return (
-            <ButtonActionIconWhite id={props.id} onClick={props.onClick}>
-                <StarEmptyIcon />
-            </ButtonActionIconWhite>
+            <Link href={url}>
+                <ButtonActionIconWhite id={props.id}>
+                    <StarEmptyIcon />
+                </ButtonActionIconWhite>
+            </Link>
         )
     }
     
