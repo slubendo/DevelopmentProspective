@@ -1,27 +1,61 @@
 import ProfileUserCard from '@/app/components/organisms/profileusercard'
-import ScrollScholarshipcardSimple from '@/app/components/organisms/scrollscholarshipcardsimple'
-import BlockHeader2 from '@/app/components/atoms/block/block-header-2'
-import TabsScholarshipCardSimple from '@/app/components/organisms/tabsscholarshipcardsimple'
+import TabsScholarshipCardProfile from '@/app/components/organisms/tabsscholarshipcardprofile'
 import scholarshipList from '@/db/fake-schol.json'
 
-export default function ProfilePage() {
+import { revalidatePath } from 'next/cache'
 
-  const listTest = scholarshipList.map(item => {
+import { auth } from '@/auth'
+import { getAppliedScholarships, getSavedScholarships } from './action'
+
+export default async function ProfilePage() {
+
+  const session = await auth();
+  
+  let listApplied = [];
+  let listSaved = [];
+  let userId;
+
+  if(session) {
+    userId = session.user.id;
+  }
+
+  if(userId) {
+    listApplied = await getAppliedScholarships(userId);
+    listSaved = await getSavedScholarships(userId)
+  }
+
+  console.log(listApplied);
+  console.log(listSaved);
+
+  listApplied = listApplied.map(item => {
     return {
+      id: item.id,
       title: item.title,
       content: item.content,
       award: item.award,
       deadline: item.deadline,
       href: item.href,
       src: item.src,
-      alt: item.alt
+      alt: item.alt,
+      isApplied: true
     }
-  }
-  )
+  })
 
-  const listTest1 = [listTest[0], listTest[1]]
+  listSaved = listSaved.map(item => {
+    return {
+      id: item.id,
+      title: item.title,
+      content: item.content,
+      award: item.award,
+      deadline: item.deadline,
+      href: item.href,
+      src: item.src,
+      alt: item.alt,
+      isApplied: false,
+    }
+  })
 
-  const listTest2 = [listTest[2], listTest[3], listTest[4]]
+  revalidatePath("/profile")
 
   return (
     <div className="flex flex-col rounded-xl mx-auto w-full 
@@ -30,7 +64,7 @@ export default function ProfilePage() {
         <ProfileUserCard />
       </div>
       <div>
-        <TabsScholarshipCardSimple listSaved={listTest1} listApplied={listTest2} />
+        <TabsScholarshipCardProfile listSaved={listSaved} listApplied={listApplied} />
       </div>
     </div>
   )

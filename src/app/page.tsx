@@ -5,11 +5,18 @@ import GreetingCard from './components/organisms/greetingcard';
 import scholarshipData from '@/db/fake-schol.json';
 import ButtonActionText from './components/atoms/button/button-action-text';
 
-export default function Home() {
+import { auth } from '@/auth';
+import { db } from '@/db';
+import { scholarships } from '@/db/schema/scholarships';
+
+export default async function Home() {
   
+  const session = await auth();
+
   // Process the data as per requirements
   const listTest = scholarshipData.map(item => {
     return {
+      id: 1,
       title: item.title,
       content: item.content,
       award: item.award,

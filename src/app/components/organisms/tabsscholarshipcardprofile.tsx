@@ -1,18 +1,18 @@
 "use client"
 
-import ScrollScholarshipcardSimple from "./scrollscholarshipcardsimple";
-import { Scholarship } from "./scrollscholarshipcardsimple";
+import ScrollScholarshipcardProfile from "./scrollscholarshipcardprofile";
+import { Scholarship } from "./scrollscholarshipcardprofile";
 import TabContainer from "../atoms/tab/tab-container";
 import TabButton from "../atoms/tab/tab-button";
 
 import { useState } from "react";
 
-export default function TabsScholarshipCardSimple(props: { listSaved: Scholarship[], listApplied: Scholarship[] }) {
+export default function TabsScholarshipCardProfile(props: { listSaved: Scholarship[], listApplied: Scholarship[] }) {
 
   const [index, setIndex] = useState(0);
 
-  const listIndex = [(<ScrollScholarshipcardSimple key="saved" list={props.listSaved} />),
-  (<ScrollScholarshipcardSimple key="applied" list={props.listApplied} />)]
+  const listIndex = [(<ScrollScholarshipcardProfile key="saved" list={props.listSaved} />),
+  (<ScrollScholarshipcardProfile key="applied" list={props.listApplied} />)]
 
   let list = listIndex[index];
 
