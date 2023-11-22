@@ -28,16 +28,15 @@ export default async function Home() {
   });
 
   return (
-    <div className="md:mt-[80px]">
-      <GreetingCard />
+    <div>
+        <GreetingCard />
 
-      {/* Scholarship header */}
-      <div className="flex flex-col justify-center mx-auto w-[90%]">
-        <BlockHeader2 header="Scholarships For You" />
-        <ButtonActionText href="/form" text="Search" />
-      </div>
+        {/* Scholarship header */}
+        <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
+          <BlockHeader2 header="Scholarships For You" />
+        </div>
 
-      <ScrollScholarshipCardSimple list={listTest} />
+        <ScrollScholarshipCardSimple list={listTest} />
     </div>
   );
 }

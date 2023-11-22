@@ -8,8 +8,8 @@ export default function AvatarUser (props: {src: string, alt: string, href: stri
                 src={props.src}
                 alt={props.alt}
                 className="object-scale-down rounded-full"
-                width={100}
-                height={100}
+                width={75}
+                height={75}
             />
         </Link>
     )

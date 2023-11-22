@@ -7,7 +7,7 @@ export default function ScrollScholarshipcardSimple(props: { list: Scholarship[]
 
   const list = props.list;
   let x = 0;
-  
+
   //alright, so for this in particular, I would need to create a separate component for when this scholarshipcardsimple
   //exists inside the tabs of the profile. When it does, it will have two extra buttons, alongside details.
   //one button allows for the toggling of the isApplied state.
@@ -15,24 +15,26 @@ export default function ScrollScholarshipcardSimple(props: { list: Scholarship[]
   //these should be form buttons that trigger a handlesubmit that triggers an action inside action.ts
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
 
       {/* Using fake data */}
       <ContainerFlex>
-        
-        {list.map(item =>
-          <div key={x++}>
-            <ScholarshipCardSimple
-              title={item.title}
-              content={item.content}
-              award={item.award}
-              deadline={item.deadline}
-              href={item.href}
-              src={item.src}
-              alt={item.alt}
-            />
-          </div>)}
 
+        <div className="flex overflow-x-auto snap-x snap-mandatory" style={{ scrollSnapType: 'x mandatory', scrollPadding: '0 5%' }}>
+          {list.map((item, index) => (
+            <div key={index} className="snap-center shrink-0 mx-2 first:ml-[5%] last:mr-[5%]" style={{ width: '90vw', maxWidth: '90vw' }}>
+              <ScholarshipCardSimple
+                title={item.title}
+                content={item.content}
+                award={item.award}
+                deadline={item.deadline}
+                href={item.href}
+                src={item.src}
+                alt={item.alt}
+              />
+            </div>
+          ))}
+        </div>
       </ContainerFlex>
     </div>
 

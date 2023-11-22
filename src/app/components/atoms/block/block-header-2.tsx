@@ -1,6 +1,6 @@
 export default function BlockHeader2(props: { header: string }) {
 
   return (
-    <h2 className="text-xl font-semibold">{props.header}</h2>
+    <h2 className="pb-2 text-lg font-normal">{props.header}</h2>
   )
 }
