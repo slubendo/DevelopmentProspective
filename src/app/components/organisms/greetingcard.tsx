@@ -16,23 +16,25 @@ export default async function GreetingCard() {
       }
 
     return (
-
-      <div className="flex flex-row items-center w-full p-4 md:w-7/8 m-auto">
-        <ProfileAvatar
-          src={image}
-          href="/profile"
-          alt="User Avatar" />
-        <div className="flex px-4">
-          <GreetingBlock greeting="Hello" user={name} subtitle="Welcome To Prospective" />
+        <div className="flex flex-row items-center w-full p-4 md:w-7/8 m-auto bg-white">
+          <div className="flex px-2">
+            <GreetingBlock greeting="Hello" user={name} subtitle="Welcome to Prospective!" />
+          </div>
+          <div className="ml-auto">
+            <ProfileAvatar
+              src={image}
+              href="/profile"
+              alt="User Avatar"
+            />
+          </div>
         </div>
-      </div>
   
     )
   } else {
     return (
-      <div className="flex flex-row items-center w-full p-4 md:w-7/8 m-auto">
-      <div className="flex px-4">
-        <GreetingBlock greeting="Hello" user="" subtitle="Welcome To Prospective" />
+      <div className="flex flex-row items-center w-full p-4 md:w-7/8 m-auto bg-white">
+      <div className="flex px-2">
+        <GreetingBlock greeting="Hello" user="" subtitle="Welcome to Prospective!" />
       </div>
     </div>
     )

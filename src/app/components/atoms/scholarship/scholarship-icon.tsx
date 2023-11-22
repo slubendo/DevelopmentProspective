@@ -5,9 +5,9 @@ export default function ScholarshipIcon (props: {src: string, alt: string}) {
         <Image 
             src={props.src}
             alt={props.alt}
-            className="object-scale-down rounded-2xl"
-            width={300}
-            height={300}
+            className="object-scale-down rounded-xl"
+            width={350}
+            height={350}
         />
     )
 }
