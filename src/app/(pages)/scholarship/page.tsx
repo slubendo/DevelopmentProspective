@@ -15,16 +15,19 @@ export default async function Home() {
   if(session) {
     const result = await getFormResultsAndConvertToScholarshipArray();
 
-    const databaseList = result.map((item: { title: any; content: any; award: any; deadline: any; href: any; src: any; alt: any; }) => {
+    const databaseList = result.map((item: { title: any; description: any; amount: any; deadline: any; siteURL: any; src: any; shortDescription: any; }) => {
+      const baseUrlMatch = item.siteURL.match(/^(https?:\/\/[^/]+)/);
+    const baseUrl = baseUrlMatch ? baseUrlMatch[0] : '';
+    const faviconResponse = (baseUrl + "/favicon.ico");
         return {
           id: 1,
           title: item.title,
-          content: item.content,
-          award: item.award,
+          content: item.description,
+          award: item.amount,
           deadline: item.deadline,
-          href: item.href,
-          src: item.src,
-          alt: item.alt
+          href: item.siteURL,
+          src: faviconResponse,
+          alt: item.shortDescription
         }
       }
     )
