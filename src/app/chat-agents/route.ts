@@ -14,6 +14,9 @@ import { PromptTemplate } from "langchain/prompts";
 
 import { AIMessage, ChatMessage, HumanMessage } from "langchain/schema";
 import { BufferMemory, ChatMessageHistory } from "langchain/memory";
+import { createOrUpdateFormResultForUser } from "../action";
+import { scheduler } from "timers/promises";
+import { redirect } from "next/navigation";
 
 // export const runtime = "edge";
 
@@ -63,7 +66,7 @@ export async function POST(req: NextRequest) {
 
     // Requires process.env.SERPAPI_API_KEY to be set: https://serpapi.com/
     const tools = [new Calculator(), new SerpAPI()];
-    const chat = new ChatOpenAI({ modelName: "gpt-4-1106-preview", temperature: 0 });
+    const chat = new ChatOpenAI({ modelName: "gpt-4", temperature: 0 });
 
     // Hard coded userEligibility for testing
     const userEligibility = {
@@ -109,14 +112,16 @@ export async function POST(req: NextRequest) {
 
     const ScholarshipArray = result.output;
 
-    if (typeof window !== "undefined") {
-      console.log("client side");
-    } else {
-      console.log("server side");
-      const filePath = "./fake-schol.json";
-      await writeFile(filePath, ScholarshipArray, "utf8");
-      console.log("File written to", filePath);
-    }
+    await createOrUpdateFormResultForUser(ScholarshipArray)
+
+    // if (typeof window !== "undefined") {
+    //   console.log("client side");
+    // } else {
+    //   console.log("server side");
+    //   const filePath = "./fake-schol.json";
+    //   await writeFile(filePath, ScholarshipArray, "utf8");
+    //   console.log("File written to", filePath);
+    // }
 
     // if (typeof window === 'undefined') {
     //   // Running on the server
@@ -166,7 +171,6 @@ export async function POST(req: NextRequest) {
 
     //   // return new StreamingTextResponse(fakeStream);
     // }
-
     return NextResponse.json({ output: ScholarshipArray }, { status: 200 });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
