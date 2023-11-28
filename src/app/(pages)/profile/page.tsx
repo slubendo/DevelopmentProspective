@@ -24,9 +24,6 @@ export default async function ProfilePage() {
     listSaved = await getSavedScholarships(userId)
   }
 
-  console.log(listApplied);
-  console.log(listSaved);
-
   listApplied = listApplied.map(item => {
     return {
       id: item.id,
