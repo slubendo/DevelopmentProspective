@@ -1,4 +1,4 @@
-
+import ScrollScholarshipcardResult from '@/app/components/organisms/scrollscholarshipcardresult';
 import ScrollScholarshipcardSimple from '@/app/components/organisms/scrollscholarshipcardsimple'
 import BlockHeader2 from '@/app/components/atoms/block/block-header-2'
 import scholarshipData from '@/db/fake-schol.json';
@@ -35,7 +35,7 @@ export default async function Home() {
     return (
       <div className="md:mt-[100px]">
         <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
-        <ScrollScholarshipcardSimple list={databaseList} />
+        <ScrollScholarshipcardResult list={databaseList} />
       </div>
     )
   }
