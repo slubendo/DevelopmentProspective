@@ -6,6 +6,8 @@ import scholarshipData from '@/db/fake-schol.json';
 import ButtonActionText from './components/atoms/button/button-action-text';
 import AddCategoryIcon from './components/atoms/add-category';
 
+import Link from 'next/link';
+
 import { auth } from '@/auth';
 import { db } from '@/db';
 
@@ -46,10 +48,12 @@ export default async function Home() {
   return (
     <div>
       <GreetingCard />
-
+      <Link href="/form">
+        Find Your Scholarships
+      </Link>
       {/* Scholarship header */}
       <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
-        <BlockHeader2 header="Scholarships For You" />
+        <BlockHeader2 header="Popular Scholarships" />
       </div>
 
       <ScrollScholarshipCardSimple list={listTest} />
