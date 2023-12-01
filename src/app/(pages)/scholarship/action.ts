@@ -8,6 +8,7 @@ import { auth } from '@/auth'
 import { formResults, formResults as resultsTable } from '@/db/schema/formResults'
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { scholarships } from '@/db/schema/scholarships'
 
 export async function getFormResultsAndConvertToScholarshipArray() {
 
@@ -26,9 +27,17 @@ export async function getFormResultsAndConvertToScholarshipArray() {
     
 }
 
-export async function saveScholarshipToUser() {
+export async function saveScholarshipToUser(jsonData: string) {
     const session = await auth();
     if(session) {
         console.log("Server Triggered")
+        //right now I just want to insert it unga bunga mode, without worrying too much about what's actually inside or not. However...
+        await db.insert(scholarships).values({
+            userId: session.user.id,
+            jsonData: jsonData,
+            isApplied: false,
+        })
+        console.log("Insert completed.")
+
     }
 }
