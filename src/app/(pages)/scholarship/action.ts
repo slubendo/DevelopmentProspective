@@ -27,6 +27,6 @@ export async function getFormResultsAndConvertToScholarshipArray() {
 export async function saveScholarshipToUser() {
     const session = await auth();
     if(session) {
-        console.log("Triggered")
+        console.log("Server Triggered")
     }
 }
