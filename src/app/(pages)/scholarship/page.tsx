@@ -6,6 +6,8 @@ import scholarshipData from '@/db/fake-schol.json';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
+import Link from 'next/link';
+
 import { getFormResultsAndConvertToScholarshipArray } from './action';
 
 export default async function Home() {
@@ -35,11 +37,16 @@ export default async function Home() {
     return (
       <div className="md:mt-[100px]">
         <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
+        <Link href="/form">
+          <p>Generate New Scholarships</p>
+        </Link>
         <ScrollScholarshipcardResult list={databaseList} />
       </div>
     )
   }
   
+
+  //what should you display if 
   const listTest = scholarshipData.map(item => {
     return {
       id: 1,
@@ -57,6 +64,9 @@ export default async function Home() {
   return (
     <div className="md:mt-[100px]">
       <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
+      <Link href="/form">
+        <p>Generate New Scholarships</p>
+      </Link>
       <ScrollScholarshipcardSimple list={listTest} />
     </div>
   )
