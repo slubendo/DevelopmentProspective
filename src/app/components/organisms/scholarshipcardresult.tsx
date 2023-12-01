@@ -33,7 +33,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <div className=" w-3/4">
           {/* Scholarship title */}
           <TitleBlock header={props.title} />
-          <div className="flex h-16 overflow-y-auto text-xs text-gray-500">
+          <div className="flex h-16 overflow-y-auto text-xs text-dark-gray">
             {props.content}
           </div>
         </div>

@@ -23,6 +23,7 @@ const config: Config = {
         'night': 'rgba(15, 15, 15, 1)',
         'eerie-black': 'rgba(24, 24, 24, 1)',
         'ruddy-blue': 'rgba(76, 163, 255, 1)',
+        'blue-hover': 'rgba(0, 99, 206 , 1)',
       },
     },
   },

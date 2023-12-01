@@ -36,7 +36,7 @@ export default function ScrollScholarshipcardResult(props: { list: Scholarship[]
   })
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-light-gray">
 
       {/* Using fake data */}
       <ContainerFlex>

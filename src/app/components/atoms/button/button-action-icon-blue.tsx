@@ -4,7 +4,7 @@ export default function ButtonActionIconBlue(props: {id: number, children: React
 
   //for this, we'll be insert an icon image into this button and seeing how that works out.
   return (
-    <button type="submit" value={props.id} className="bg-blue-400">
+    <button type="submit" value={props.id} className="bg-ruddy-blue">
       {props.children}
     </button>
   )
