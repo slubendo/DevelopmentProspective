@@ -98,14 +98,23 @@ export async function toggleScholarshipApplicationStatus(id: number) {
     
 }
 
-export async function deleteScholarshipFromProfile(id: number, userId: string) {
-    const scholarship = await getScholarshipById(id);
+export async function deleteScholarshipFromProfile(id: number) {
 
-    if(scholarship && scholarship[0].userId == userId) {
-        await db.delete(scholarships)
-           .where(eq(scholarships.id, scholarship[0].id))
-        
-        revalidatePath("/profile")
-        redirect("/profile")
+    const session = await auth();
+
+    if(session) {
+        const scholarship = await getScholarshipById(id);
+        const userId = session.user.id;
+
+        if(scholarship && scholarship[0].userId == userId) {
+            await db.delete(scholarships)
+               .where(eq(scholarships.id, scholarship[0].id))
+            
+            revalidatePath("/profile")
+            redirect("/profile")
+        }
+    } else {
+        redirect("/api/auth/signin?callbackUrl=/profile")
     }
+    
 }

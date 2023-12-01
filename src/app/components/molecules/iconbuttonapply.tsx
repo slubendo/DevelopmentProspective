@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react"
 import StarEmptyIcon from "../atoms/icon-components/star-empty-icon"
 import StarFilledIcon from "../atoms/icon-components/star-filled-icon"
 

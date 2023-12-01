@@ -1,7 +1,6 @@
-import ButtonActionIconBlue from "../atoms/button/button-action-icon-blue"
 import DeleteIcon from "../atoms/icon-components/delete-icon"
 
-import Link from "next/link"
+import { deleteScholarshipFromProfile } from "@/app/(pages)/profile/action"
 
 export default function IconButtonDelete(props: {id: number}) {
 
@@ -9,14 +8,14 @@ export default function IconButtonDelete(props: {id: number}) {
     //we'll create pages that can use server and all in order to get actions to do stuff
     //maybe in the api folder??
 
-    const url = "/profile/delete/" + String(props.id);
+    const handleClick = async () => {
+        await deleteScholarshipFromProfile(props.id);
+    }
 
     return (
-        <Link href={url}>
-            <ButtonActionIconBlue id={props.id}>
+            <button className="bg-blue-400" onClick={handleClick}>
                 <DeleteIcon />
-            </ButtonActionIconBlue>
-        </Link>
+            </button>
     )
     
 }
