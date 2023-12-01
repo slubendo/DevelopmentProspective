@@ -1,30 +1,28 @@
-import { MouseEventHandler } from "react"
-import ButtonActionIconBlue from "../atoms/button/button-action-icon-blue"
-import ButtonActionIconWhite from "../atoms/button/button-action-icon-white"
 import StarEmptyIcon from "../atoms/icon-components/star-empty-icon"
 import StarFilledIcon from "../atoms/icon-components/star-filled-icon"
 
-import Link from "next/link"
+
+import { toggleScholarshipApplicationStatus } from "@/app/(pages)/profile/action"
 
 export default function IconButtonApply(props: {id: number, isApplied: boolean}) {
 
-    const url = "/profile/toggle-apply/" + String(props.id);
+    const handleClick = async() => {
+        console.log("Triggered and awaiting.")
+        await toggleScholarshipApplicationStatus(props.id);
+        console.log("It should have worked.");
+    }
 
     if(props.isApplied) {
         return (
-            <Link href={url}>
-            <ButtonActionIconBlue id={props.id}>
+            <button className="bg-blue-400" onClick={handleClick}>
                 <StarFilledIcon />
-            </ButtonActionIconBlue>
-            </Link>
+            </button>
         )
     } else {
         return (
-            <Link href={url}>
-                <ButtonActionIconWhite id={props.id}>
+                <button onClick={handleClick}>
                     <StarEmptyIcon />
-                </ButtonActionIconWhite>
-            </Link>
+                </button>
         )
     }
     
