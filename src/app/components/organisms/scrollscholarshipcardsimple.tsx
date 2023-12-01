@@ -1,9 +1,12 @@
+"use server"
 import ScholarshipCardSimple from "./scholarshipcardsimple";
 import ContainerFlex from "../atoms/container/container-flex";
+import { SessionUserType, sessionUser } from "@/app/action";
 
 export type Scholarship = { id: number, title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string }
 
-export default function ScrollScholarshipcardSimple(props: { list: Scholarship[] }) {
+export default async function ScrollScholarshipcardSimple(props: { list: Scholarship[], formData: { [key: string]: string | string[] | undefined }}) {
+  const user = sessionUser()
 
   const list = props.list;
   let x = 0;

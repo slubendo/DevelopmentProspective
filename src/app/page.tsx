@@ -10,29 +10,22 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { db } from '@/db';
+import { aiFunction } from './aiFunction';
+import { sessionUser } from './action';
 
 
-export default async function Home() {
+export default function Home({
+  params,
+  searchParams,
+}: {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
 
-  const session = await auth();
-
-  // Process the data as per requirements
+  console.log(searchParams)
+  const scholarshipArray = aiFunction("chat-agents", false, JSON.stringify(searchParams))
+  const formResults = searchParams
   const listTest = scholarshipData.map(item => {
-    return {
-      id: 1,
-      title: item.title,
-      content: item.content,
-      award: item.award,
-      deadline: item.deadline,
-      href: item.details,
-      src: item.src,
-      alt: item.alt
-    };
-  });
-
-  // Change listTest2 to contain data with specs about athletics and ethnicity
-
-  const listTest2 = scholarshipData.map(item => {
     return {
       id: 2,
       title: item.title,
@@ -55,8 +48,7 @@ export default async function Home() {
       <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
         <BlockHeader2 header="Popular Scholarships" />
       </div>
-
-      <ScrollScholarshipCardSimple list={listTest} />
+      <ScrollScholarshipCardSimple list={listTest} formData={searchParams} />
 
       {/* Explore scholarship header */}
       <div className="flex justify-center mx-auto w-full bg-slate-100">
@@ -74,7 +66,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="bg-gray-100">
-        <ScrollScholarshipCardSimple list={listTest2} />
+        <ScrollScholarshipCardSimple list={listTest} formData={searchParams} />
       </div>
     </div>
   );
