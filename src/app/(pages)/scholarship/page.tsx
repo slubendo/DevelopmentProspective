@@ -64,6 +64,9 @@ export default async function Home() {
   return (
     <div className="md:mt-[100px]">
       <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
+      <Link href="/form">
+        <p>Generate New Scholarships</p>
+      </Link>
       <ScrollScholarshipcardSimple list={listTest} />
     </div>
   )
