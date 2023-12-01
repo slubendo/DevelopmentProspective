@@ -54,7 +54,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <ValuesBlock header="Deadline" value={props.deadline} />
         <ButtonActionText href={props.href} text="Details" />
       </div>
-      <button onClick={() => handleClick()}>Save to Profile</button>
+      <button onClick={handleClick}>Save to Profile</button>
 
     </ContainerCard>
   )

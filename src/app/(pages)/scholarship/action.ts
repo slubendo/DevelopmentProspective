@@ -1,3 +1,5 @@
+"use server"
+
 import { db } from '@/db'
 import { eq } from 'drizzle-orm/mysql-core/expressions'
 
