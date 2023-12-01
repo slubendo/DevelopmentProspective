@@ -6,6 +6,10 @@ import ValuesBlock from "../molecules/valuesblock";
 import ButtonActionText from "../atoms/button/button-action-text";
 import ScholarshipIconFrame from "../molecules/scholarshipiconframe";
 
+import { useState } from "react";
+
+import { saveScholarshipToUser } from "@/app/(pages)/scholarship/action";
+
 export default function ScholarshipCardResult(props: { title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string }) {
 
   let value;
@@ -16,12 +20,20 @@ export default function ScholarshipCardResult(props: { title: string, content: s
     value = "$" + props.award;
   }
 
+  const [index, setIndex] = useState(0);
+  const [buttonToggle, setButtonToggle] = useState(false);
+
+  const messageArray = ["Save to Profile", "Saving to Profile", "Saved to Profile"]
+
   const jsonData = JSON.stringify(props)
 
   const handleClick = async () => {
 
-    console.log("triggered onClick")
-    
+    setIndex(1);
+    await saveScholarshipToUser(jsonData);
+    setButtonToggle(true);
+    setIndex(2);
+
   };
 
 
@@ -51,7 +63,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <ValuesBlock header="Deadline" value={props.deadline} />
         <ButtonActionText href={props.href} text="Details" />
       </div>
-      <button onClick={handleClick}>Save to Profile</button>
+      <button onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>{messageArray[index]}</button>
 
     </ContainerCard>
   )
