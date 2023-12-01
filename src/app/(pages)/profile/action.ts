@@ -1,9 +1,13 @@
+"use server"
+
 import { db } from '@/db'
 import { scholarships } from '@/db/schema/scholarships'
 import { eq } from 'drizzle-orm/mysql-core/expressions'
 
 import { redirect } from 'next/navigation'
 import { revalidatePath } from 'next/cache'
+
+import { auth } from '@/auth'
 
 async function getScholarshipById(id: number) {
     const response = await db.select().from(scholarships).where(eq(scholarships.id, id))
@@ -72,15 +76,24 @@ export async function getSavedScholarships(userId: string) {
     return savedList;
 }
 
-export async function toggleScholarshipApplicationStatus(id: number, userId: string) {
-    const scholarship = await getScholarshipById(id);
+export async function toggleScholarshipApplicationStatus(id: number) {
 
-    if(scholarship && scholarship[0].userId == userId) {
-        await db.update(scholarships)
-            .set({isApplied: !scholarship[0].isApplied})
-            .where(eq(scholarships.id, scholarship[0].id))
+    const session = await auth();
 
-        revalidatePath("/profile")
+    if(session) {
+        const scholarship = await getScholarshipById(id);
+        const userId = session.user.id;
+
+        if(scholarship && scholarship[0].userId == userId) {
+            await db.update(scholarships)
+                .set({isApplied: !scholarship[0].isApplied})
+                .where(eq(scholarships.id, scholarship[0].id))
+    
+            revalidatePath("/profile")
+            redirect("/profile")
+        }
+    } else {
+        redirect("/api/auth/signin?callbackUrl=/profile")
     }
     
 }
@@ -93,5 +106,6 @@ export async function deleteScholarshipFromProfile(id: number, userId: string) {
            .where(eq(scholarships.id, scholarship[0].id))
         
         revalidatePath("/profile")
+        redirect("/profile")
     }
 }
