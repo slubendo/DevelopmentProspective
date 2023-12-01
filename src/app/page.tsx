@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { db } from '@/db';
-import { aiFunction } from './aiFunction';
+import { ai, aiFunction } from './aiFunction';
 import { sessionUser } from './action';
 
 
@@ -23,8 +23,10 @@ export default function Home({
 }) {
 
   console.log(searchParams)
-  const scholarshipArray = aiFunction("chat-agents", false, JSON.stringify(searchParams))
-  const formResults = searchParams
+  console.log(JSON.stringify(searchParams))
+  // const scholarshipArray = aiFunction("chat-agents", false, JSON.stringify(searchParams))
+  const scholarshipArray = ai(JSON.stringify(searchParams))
+  // const formResults = searchParams
   const listTest = scholarshipData.map(item => {
     return {
       id: 2,
