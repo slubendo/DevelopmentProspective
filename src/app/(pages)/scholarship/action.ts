@@ -18,11 +18,16 @@ export async function getFormResultsAndConvertToScholarshipArray() {
         const userId = session.user.id;
         const response = await db.select().from(formResults).where(eq(formResults.userId, userId))
         //if there is no previous formresult, need to deal with this being undefined
-        const jsonList = response[0].scholarshipArray;
+        if (response) {
+            const jsonList = response[0].scholarshipArray;
 
         const list = JSON.parse(jsonList)
 
         return list;
+        } else {
+            return [];
+        }
+        
     }
     
 }
