@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollScholarshipCardSimple from './components/organisms/scrollscholarshipcardsimple';
+import ScrollScholarshipcardResult from './components/organisms/scrollscholarshipcardresult';
 import BlockHeader2 from './components/atoms/block/block-header-2';
 import GreetingCard from './components/organisms/greetingcard';
 import scholarshipData from '@/db/fake-schol.json';
@@ -11,12 +12,22 @@ import Link from 'next/link';
 import { auth } from '@/auth';
 import { db } from '@/db';
 import { ai } from './aiFunction';
-import { createOrUpdateFormResultForUser, sessionUser } from './action';
+import { getNonProfileScholarships } from './(pages)/profile/action';
 
 
 export default async function Home() {
 
+  const session = await auth();
 
+  const exploreList = await getNonProfileScholarships();
+
+  let exploreCards;
+
+  if(session) {
+    exploreCards = (<ScrollScholarshipcardResult list={exploreList} />)
+  } else {
+    exploreCards = (<ScrollScholarshipCardSimple list={exploreList} />)
+  }
 
   const listTest = scholarshipData.map(item => {
     return {
@@ -59,7 +70,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="bg-gray-100">
-        <ScrollScholarshipCardSimple list={listTest} />
+        {exploreCards}
       </div>
     </div>
   );
