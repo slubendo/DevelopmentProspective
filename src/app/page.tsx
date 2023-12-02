@@ -10,23 +10,14 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { db } from '@/db';
-import { ai, aiFunction } from './aiFunction';
-import { sessionUser } from './action';
+import { ai } from './aiFunction';
+import { createOrUpdateFormResultForUser, sessionUser } from './action';
 
 
-export default function Home({
-  params,
-  searchParams,
-}: {
-  params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}) {
+export default async function Home() {
 
-  console.log(searchParams)
-  console.log(JSON.stringify(searchParams))
-  // const scholarshipArray = aiFunction("chat-agents", false, JSON.stringify(searchParams))
-  const scholarshipArray = ai(JSON.stringify(searchParams))
-  // const formResults = searchParams
+
+
   const listTest = scholarshipData.map(item => {
     return {
       id: 2,
@@ -50,7 +41,7 @@ export default function Home({
       <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
         <BlockHeader2 header="Popular Scholarships" />
       </div>
-      <ScrollScholarshipCardSimple list={listTest} formData={searchParams} />
+      <ScrollScholarshipCardSimple list={listTest} />
 
       {/* Explore scholarship header */}
       <div className="flex justify-center mx-auto w-full bg-slate-100">
@@ -68,7 +59,7 @@ export default function Home({
         </div>
       </div>
       <div className="bg-gray-100">
-        <ScrollScholarshipCardSimple list={listTest} formData={searchParams} />
+        <ScrollScholarshipCardSimple list={listTest} />
       </div>
     </div>
   );

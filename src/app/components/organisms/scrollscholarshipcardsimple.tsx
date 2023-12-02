@@ -5,7 +5,7 @@ import { SessionUserType, sessionUser } from "@/app/action";
 
 export type Scholarship = { id: number, title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string }
 
-export default async function ScrollScholarshipcardSimple(props: { list: Scholarship[], formData: { [key: string]: string | string[] | undefined }}) {
+export default async function ScrollScholarshipcardSimple(props: { list: Scholarship[]}) {
   const user = sessionUser()
 
   const list = props.list;
