@@ -84,7 +84,7 @@ export default function SubmitForm() {
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="items-center mx-auto max-w-[95%]">
             <BlockHeader3 header="What's your gender?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+          <select className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
             value={formData.gender}
             onChange={handleChangeForm}
             name="gender"
@@ -111,12 +111,12 @@ export default function SubmitForm() {
             type="text"
             onChange={handleChangeForm}
             value={formData.ethnicity}
-            className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+            className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
           />
         </div>
         <div className="items-center mx-auto max-w-[95%]">
         <BlockHeader3 header="Are you Indigenous?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+          <select className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
             value={formBoolData.indigenous}
             onChange={handleChange}
             name="indigenous"
@@ -134,7 +134,7 @@ export default function SubmitForm() {
         </div>
         <div className="items-center mx-auto max-w-[95%]">
         <BlockHeader3 header="Do you have a disability?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+          <select className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
             value={formBoolData.disability}
             onChange={handleChange}
             name="disability"
@@ -157,12 +157,12 @@ export default function SubmitForm() {
             type="text"
             onChange={handleChangeForm}
             value={formData["level of education"]}
-            className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+            className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
           />
         </div>
         <div className="items-center mx-auto max-w-[95%]">
         <BlockHeader3 header="What's your income level?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+          <select className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
             value={formData["income level"]}
             onChange={handleChangeForm}
             name="income level"
@@ -188,7 +188,7 @@ export default function SubmitForm() {
             type="text"
             onChange={handleChangeForm}
             value={formData.sports}
-            className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
           />
         </div>
         <div className="items-center mx-auto max-w-[95%]">
@@ -198,7 +198,7 @@ export default function SubmitForm() {
             type="text"
             onChange={handleChangeForm}
             value={formData["field of study"]}
-            className="mt-1 block w-full py-2 px-3 border-none bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
+            className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-light-gray dark:bg-soft-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-hover dark:focus:bg-blue-hover focus:ring-0"
           />
         </div>
         <div className="items-center mx-auto max-w-[95%]">
@@ -208,7 +208,7 @@ export default function SubmitForm() {
             type="text"
             onChange={handleChangeForm}
             value={formData.religion}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3  border-blue-ish-gray bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
           />
         </div>
         <SubmitButton />
