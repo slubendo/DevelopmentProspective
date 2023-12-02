@@ -20,7 +20,6 @@ export async function getFormResultsAndConvertToScholarshipArray() {
         //if there is no previous formresult, need to deal with this being undefined
         if (response.length > 0) {
             const jsonList = response[0].scholarshipArray;
-            console.log(response)
             console.log(jsonList)
         const list = JSON.parse(jsonList)
 
@@ -38,7 +37,6 @@ export async function getFormResultsAndConvertToScholarshipArray() {
 export async function saveScholarshipToUser(jsonData: string) {
     const session = await auth();
     if(session) {
-        console.log("Server Triggered")
 
         const userId = session.user.id;
 

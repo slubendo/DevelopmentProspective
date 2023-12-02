@@ -9,11 +9,16 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 import { getFormResultsAndConvertToScholarshipArray } from './action';
+import { getNonProfileScholarships } from '../profile/action';
+
+import { Scholarship } from '@/app/components/organisms/scrollscholarshipcardsimple';
 
 export default async function Home() {
 
   const session = await auth();
 
+  const exploreList = await getNonProfileScholarships();
+  
   if (session) {
     const result = await getFormResultsAndConvertToScholarshipArray();
     
@@ -41,25 +46,11 @@ export default async function Home() {
           <p>Generate New Scholarships</p>
         </Link>
         <ScrollScholarshipcardResult list={databaseList} />
+        <BlockHeader2 header="Explore Scholarships" />
+        <ScrollScholarshipcardResult list={exploreList} />
       </div>
     )
   }
-
-
-  //what should you display if 
-  const listTest = scholarshipData.map(item => {
-    return {
-      id: 1,
-      title: item.title,
-      content: item.content,
-      award: item.award,
-      deadline: item.deadline,
-      href: item.href,
-      src: item.src,
-      alt: item.alt
-    }
-  }
-  )
 
   return (
     <div className="md:mt-[100px]">
@@ -67,7 +58,8 @@ export default async function Home() {
       <Link href="/form">
         <p>Generate New Scholarships</p>
       </Link>
-      <ScrollScholarshipcardSimple list={listTest} />
+      <BlockHeader2 header="Explore Scholarships" />
+      <ScrollScholarshipcardSimple list={exploreList} />
     </div>
   )
 }
