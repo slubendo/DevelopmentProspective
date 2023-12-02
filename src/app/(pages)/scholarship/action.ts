@@ -20,16 +20,16 @@ export async function getFormResultsAndConvertToScholarshipArray() {
         //if there is no previous formresult, need to deal with this being undefined
         if (response.length > 0) {
             const jsonList = response[0].scholarshipArray;
-
+            console.log(response)
+            console.log(jsonList)
         const list = JSON.parse(jsonList)
 
         return list;
-        } else {
-
+        }
             const emptyArray: any[] = [];
 
             return emptyArray;
-        }
+        
 
     }
     

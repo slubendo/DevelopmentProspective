@@ -14,24 +14,24 @@ export default async function Home() {
 
   const session = await auth();
 
-  if(session) {
+  if (session) {
     const result = await getFormResultsAndConvertToScholarshipArray();
-
+    
     const databaseList = result.map((item: { title: any; description: any; amount: any; deadline: any; siteURL: any; src: any; shortDescription: any; }) => {
       const baseUrlMatch = item.siteURL.match(/^(https?:\/\/[^/]+)/);
-    const baseUrl = baseUrlMatch ? baseUrlMatch[0] : '';
-    const faviconResponse = (baseUrl + "/favicon.ico");
-        return {
-          id: 1,
-          title: item.title,
-          content: item.description,
-          award: item.amount,
-          deadline: item.deadline,
-          href: item.siteURL,
-          src: faviconResponse,
-          alt: item.shortDescription
-        }
+      const baseUrl = baseUrlMatch ? baseUrlMatch[0] : '';
+      const faviconResponse = (baseUrl + "/favicon.ico");
+      return {
+        id: 1,
+        title: item.title,
+        content: item.description,
+        award: item.amount,
+        deadline: item.deadline,
+        href: item.siteURL,
+        src: faviconResponse,
+        alt: item.shortDescription
       }
+    }
     )
 
     return (
@@ -44,7 +44,7 @@ export default async function Home() {
       </div>
     )
   }
-  
+
 
   //what should you display if 
   const listTest = scholarshipData.map(item => {
@@ -59,8 +59,8 @@ export default async function Home() {
       alt: item.alt
     }
   }
-)
-  
+  )
+
   return (
     <div className="md:mt-[100px]">
       <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>

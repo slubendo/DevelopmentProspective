@@ -69,19 +69,19 @@ export default function SubmitForm() {
     
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
 
-    e.preventDefault()
-    const submission = { ...formData }
+  //   e.preventDefault()
+  //   const submission = { ...formData }
 
-    console.log(submission);
-    sendJSON(submission);
-  }
+  //   console.log(submission);
+  //   sendJSON(submission);
+  // }
 
   return (
     <div className="pb-24 md:pt-24">
         <BlockHeader2 header="Prospective Info" />
-      <form className="space-y-5" onSubmit={handleSubmit}>
+      <form className="space-y-5" action={"/form/output"}>
         <div className="flex flex-col space-y-1.5">
             <BlockHeader3 header="What's your gender?" />
           <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
