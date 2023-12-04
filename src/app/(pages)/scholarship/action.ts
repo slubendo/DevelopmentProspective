@@ -18,11 +18,18 @@ export async function getFormResultsAndConvertToScholarshipArray() {
         const userId = session.user.id;
         const response = await db.select().from(formResults).where(eq(formResults.userId, userId))
         //if there is no previous formresult, need to deal with this being undefined
-        const jsonList = response[0].scholarshipArray;
-
+        if (response.length > 0) {
+            const jsonList = response[0].scholarshipArray;
+            console.log(jsonList)
         const list = JSON.parse(jsonList)
 
         return list;
+        }
+            const emptyArray: any[] = [];
+
+            return emptyArray;
+        
+
     }
     
 }
@@ -30,7 +37,6 @@ export async function getFormResultsAndConvertToScholarshipArray() {
 export async function saveScholarshipToUser(jsonData: string) {
     const session = await auth();
     if(session) {
-        console.log("Server Triggered")
 
         const userId = session.user.id;
 

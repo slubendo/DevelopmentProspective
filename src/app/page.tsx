@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollScholarshipCardSimple from './components/organisms/scrollscholarshipcardsimple';
+import ScrollScholarshipcardResult from './components/organisms/scrollscholarshipcardresult';
 import BlockHeader2 from './components/atoms/block/block-header-2';
 import GreetingCard from './components/organisms/greetingcard';
 import scholarshipData from '@/db/fake-schol.json';
@@ -10,29 +11,25 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { db } from '@/db';
+import { ai } from './aiFunction';
+import { getNonProfileScholarships } from './(pages)/profile/action';
 
 
 export default async function Home() {
 
   const session = await auth();
 
-  // Process the data as per requirements
+  const exploreList = await getNonProfileScholarships();
+
+  let exploreCards;
+
+  if(session) {
+    exploreCards = (<ScrollScholarshipcardResult list={exploreList} />)
+  } else {
+    exploreCards = (<ScrollScholarshipCardSimple list={exploreList} />)
+  }
+
   const listTest = scholarshipData.map(item => {
-    return {
-      id: 1,
-      title: item.title,
-      content: item.content,
-      award: item.award,
-      deadline: item.deadline,
-      href: item.details,
-      src: item.src,
-      alt: item.alt
-    };
-  });
-
-  // Change listTest2 to contain data with specs about athletics and ethnicity
-
-  const listTest2 = scholarshipData.map(item => {
     return {
       id: 2,
       title: item.title,
@@ -55,7 +52,6 @@ export default async function Home() {
       <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
         <BlockHeader2 header="Popular Scholarships" />
       </div>
-
       <ScrollScholarshipCardSimple list={listTest} />
 
       {/* Explore scholarship header */}
@@ -74,7 +70,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="bg-gray-100">
-        <ScrollScholarshipCardSimple list={listTest2} />
+        {exploreCards}
       </div>
     </div>
   );
