@@ -41,7 +41,7 @@ export default async function Home() {
 
     return (
       <div className="md:mt-[100px]">
-        <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
+        <h1 className="text-4xl font-bold text-center text-azure-blue p-2">Scholarships</h1>
         <Link href="/form">
           <p>Generate New Scholarships</p>
         </Link>
@@ -52,14 +52,4 @@ export default async function Home() {
     )
   }
 
-  return (
-    <div className="md:mt-[100px]">
-      <h1 className="text-4xl font-bold text-center text-blue-900 p-2">Scholarships</h1>
-      <Link href="/form">
-        <p>Generate New Scholarships</p>
-      </Link>
-      <BlockHeader2 header="Explore Scholarships" />
-      <ScrollScholarshipcardSimple list={exploreList} />
-    </div>
-  )
 }
