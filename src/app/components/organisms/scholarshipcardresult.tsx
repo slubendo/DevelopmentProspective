@@ -63,8 +63,13 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <ValuesBlock header="Deadline" value={props.deadline} />
         <ButtonActionText href={props.href} text="Details" />
       </div>
-      <button onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>{messageArray[index]}</button>
-
+      <img
+        src="/save.svg" 
+        alt="Your Alt Text"
+        onClick={handleClick}
+        style={{ cursor: buttonToggle ? 'not-allowed' : 'pointer' }}
+        aria-disabled={buttonToggle}
+      />
     </ContainerCard>
   )
 }
