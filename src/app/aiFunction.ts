@@ -10,6 +10,7 @@ import { BufferMemory, ChatMessageHistory } from "langchain/memory";
 import { createOrUpdateFormResultForUser } from './action';
 
 // export const runtime = "edge";
+export const maxDuration = 60; // This function can run for a maximum of 60 seconds
 
 // export async function aiFunction(endpoint: string, showIntermediateStepsToggle: boolean, formData: string) {
 //   console.log("Ai Function Trigger")
