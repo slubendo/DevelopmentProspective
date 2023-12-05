@@ -36,7 +36,7 @@ export default async function Home() {
       content: item.content,
       award: item.award,
       deadline: item.deadline,
-      href: item.details,
+      href: item.href,
       src: item.src,
       alt: item.alt
     };
