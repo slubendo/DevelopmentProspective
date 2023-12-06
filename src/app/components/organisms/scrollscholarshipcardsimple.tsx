@@ -18,7 +18,7 @@ export default async function ScrollScholarshipcardSimple(props: { list: Scholar
   //these should be form buttons that trigger a handlesubmit that triggers an action inside action.ts
 
   return (
-    <div className="bg-light-gray">
+    <div className="bg-gray-100">
 
       {/* Using fake data */}
       <ContainerFlex>

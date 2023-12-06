@@ -45,25 +45,25 @@ export default async function Home() {
   return (
     <div>
       <GreetingCard />
-      <button button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mt-7 ml-10'>
+      <button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mb-5 ml-10'>
         <Link href="/form">
           Find Your Scholarships
         </Link>
 
       </button>
       {/* Scholarship header */}
-      <div className="flex justify-center mx-auto w-full pt-4 bg-slate-100 rounded-t-full">
+      <div className="flex justify-center mx-auto w-full pt-4 bg-gray-100 rounded-t-full">
       <BlockHeader2 header="Popular Scholarships" className="font-normal text-xl w-full ml-10 mt-4"/>
 
       </div>
       <ScrollScholarshipCardSimple list={listTest} />
 
       {/* Explore scholarship header */}
-      <div className="flex justify-center mx-auto w-full bg-slate-100">
+      <div className="flex justify-center mx-auto w-full bg-gray-100">
         <BlockHeader2 header="Explore" className="font-normal text-xl w-full ml-10 mt-4" />
       </div>
       <div>
-        <div className="flex justify-center mx-auto pb-2 w-full bg-slate-100">
+        <div className="flex justify-center mx-auto pb-2 w-full bg-gray-100">
           <ButtonActionText href="/" text="Athletics" />
           <span className="px-2"></span>
           <ButtonActionText href="/" text="Ethnicity" />
