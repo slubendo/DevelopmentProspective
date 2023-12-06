@@ -69,19 +69,54 @@ export default function SubmitForm() {
     
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
 
-  //   e.preventDefault()
-  //   const submission = { ...formData }
+    e.preventDefault()
+    
+    const res = await fetch("/api/ai", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
 
-  //   console.log(submission);
-  //   sendJSON(submission);
-  // }
+    const reader = res.body?.getReader()
+
+    if (!reader) {
+      console.error("error getting result")
+      return
+    }
+
+    try {
+
+    
+    const decoder = new TextDecoder("utf-8")
+    let result = ""
+
+    while (true) {
+      const { done, value } = await reader.read()
+
+      if (done) {
+        break
+      }
+
+      console.log(decoder.decode(value))
+    }
+  } catch (e) {
+    console.error(e)
+  }
+
+  console.log('maybe we\'re good')
+
+    // redirect 
+    // use router redirect 
+  }
 
   return (
     <div className="pb-24 md:pt-24">
         <BlockHeader2 header="Prospective Info" />
-      <form className="space-y-5" action={"/form/output"}>
+      <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="flex flex-col space-y-1.5">
             <BlockHeader3 header="What's your gender?" />
           <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"

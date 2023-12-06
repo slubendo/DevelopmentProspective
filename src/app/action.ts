@@ -24,7 +24,7 @@ export async function createOrUpdateFormResultForUser(jsonArray: string) {
         }
 
         revalidatePath("/scholarship")
-        redirect("/scholarship")
+        // redirect("/scholarship")
 
     } else {
         return
