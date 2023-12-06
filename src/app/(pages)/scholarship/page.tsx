@@ -3,6 +3,7 @@ import ScrollScholarshipcardSimple from '@/app/components/organisms/scrollschola
 import BlockHeader2 from '@/app/components/atoms/block/block-header-2'
 import scholarshipData from '@/db/fake-schol.json';
 import { FiSearch } from 'react-icons/fi';
+import NoScroll from '@/app/components/organisms/noscrollschol'
 
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
@@ -58,8 +59,7 @@ export default async function Home() {
             Generate New Scholarships
           </Link>
         </button>
-        <ScrollScholarshipcardResult list={databaseList} />
-        <ScrollScholarshipcardResult list={exploreList} />
+        <NoScroll/>
       </div>
     )
   }
