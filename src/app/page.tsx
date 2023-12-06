@@ -11,7 +11,6 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { db } from '@/db';
-import { ai } from './api/ai/aiFunction';
 import { getNonProfileScholarships } from './(pages)/profile/action';
 
 
