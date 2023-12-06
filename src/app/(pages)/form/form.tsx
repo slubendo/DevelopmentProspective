@@ -7,6 +7,8 @@ import SubmitButton from "./submit-button"
 
 import BlockHeader2 from "@/app/components/atoms/block/block-header-2"
 import BlockHeader3 from "@/app/components/atoms/block/block-header-3"
+import { redirect } from "next/navigation"
+import { useRouter } from 'next/navigation';
 
 export type UserForm = {
     "gender": string | null,
@@ -21,6 +23,7 @@ export type UserForm = {
 }
 
 export default function SubmitForm() {
+  const router = useRouter();
     //disability, ethnicity, field of study, religion, level of education, income level, sports, gender, LGBTQ+, indigenious
   const [formData, setFormData] = useState({
     "gender": "",
@@ -111,6 +114,7 @@ export default function SubmitForm() {
 
     // redirect 
     // use router redirect 
+    router.push('/scholarship');
   }
 
   return (
