@@ -18,7 +18,7 @@ export default async function ProfileUserCard() {
   }
 
   return (
-    <div className="flex items-start w-full p-4 md:w-7/8 m-2">
+    <div className="flex items-start w-full px-4 md:w-7/8 m-2">
       <div className="flex flex-col items-start">
         <ProfileAvatar src={image} href="/profile" alt="User Avatar Icon" />
         <div className="flex flex-col items-start mt-2">
