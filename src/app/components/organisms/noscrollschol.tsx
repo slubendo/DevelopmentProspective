@@ -19,7 +19,7 @@ export default function NoScroll() {
   }
 )
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 pt-5 mt-5 rounded-t-xl ">
       <ContainerFlex>
         {/* Stack items vertically */}
         <div className="flex flex-col">
