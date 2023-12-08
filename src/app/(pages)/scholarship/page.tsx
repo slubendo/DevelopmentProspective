@@ -2,7 +2,6 @@ import ScrollScholarshipcardResult from '@/app/components/organisms/scrollschola
 import ScrollScholarshipcardSimple from '@/app/components/organisms/scrollscholarshipcardsimple'
 import BlockHeader2 from '@/app/components/atoms/block/block-header-2'
 import scholarshipData from '@/db/fake-schol.json';
-import { FiSearch } from 'react-icons/fi';
 import NoScroll from '@/app/components/organisms/noscrollschol'
 
 import { auth } from '@/auth';
@@ -51,7 +50,6 @@ export default async function Home() {
               placeholder="Search Scholarships..."
               className="p-2 pl-10 border border-blue-ish-gray rounded-md w-full focus:border-azure-blue focus:outline-none"
             />
-            <FiSearch className="absolute left-3 top-3 text-azure-blue" />
           </div>
         </div>
         <button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mt-7 ml-10'>

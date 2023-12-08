@@ -45,7 +45,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <div className=" w-3/4">
           {/* Scholarship title */}
           <TitleBlock header={props.title} />
-          <div className="flex h-16 overflow-y-auto text-xs text-dark-gray">
+          <div className="flex h-16 overflow-hidden text-xs text-dark-gray">
             {props.content}
           </div>
         </div>
@@ -63,13 +63,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <ValuesBlock header="Deadline" value={props.deadline} />
         <ButtonActionText href={props.href} text="Details" />
       </div>
-      <img
-        src="/save.svg" 
-        alt="Your Alt Text"
-        onClick={handleClick}
-        style={{ cursor: buttonToggle ? 'not-allowed' : 'pointer' }}
-        aria-disabled={buttonToggle}
-      />
+      <button className="text-center p-2 bg-azure-blue text-white text-xs font-medium py-2 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105" onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>{messageArray[index]}</button>
     </ContainerCard>
   )
 }
