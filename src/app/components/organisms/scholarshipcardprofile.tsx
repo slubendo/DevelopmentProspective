@@ -31,7 +31,7 @@ export default function ScholarshipCardProfile(props: { id: number, title: strin
         <div className="p-2 w-3/4">
           {/* Scholarship title */}
           <TitleBlock header={props.title} />
-          <div className="flex p-4 h-28 overflow-y-auto">
+          <div className="flex p-4 h-28 overflow-hidden">
             {props.content}
           </div>
         </div>
