@@ -4,15 +4,11 @@ import ScrollScholarshipcardResult from './components/organisms/scrollscholarshi
 import BlockHeader2 from './components/atoms/block/block-header-2';
 import GreetingCard from './components/organisms/greetingcard';
 import scholarshipData from '@/db/fake-schol.json';
-import ButtonActionText from './components/atoms/button/button-action-text';
-import AddCategoryIcon from './components/atoms/add-category';
 
 import Link from 'next/link';
 
 import { auth } from '@/auth';
-import { db } from '@/db';
 import { getNonProfileScholarships } from './(pages)/profile/action';
-
 
 export default async function Home() {
 
@@ -22,7 +18,7 @@ export default async function Home() {
 
   let exploreCards;
 
-  if(session) {
+  if (session) {
     exploreCards = (<ScrollScholarshipcardResult list={exploreList} />)
   } else {
     exploreCards = (<ScrollScholarshipCardSimple list={exploreList} />)
@@ -45,24 +41,28 @@ export default async function Home() {
     <div>
       <GreetingCard />
       <div className="flex justify-center">
-      <button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 mx-auto rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mb-5'>
-        <Link href="/form">
-          Find Your Scholarships
-        </Link>
-      </button>
+        <button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 mx-auto rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mb-5'>
+          <Link href="/form">
+            Find Your Scholarships
+          </Link>
+        </button>
       </div>
+
       {/* Scholarship header */}
       <div className="flex justify-center mx-auto w-full pt-4 bg-gray-100 rounded-t-full">
-      <BlockHeader2 header="Popular Scholarships" className="font-normal text-xl w-full ml-10 mt-4"/>
+        <BlockHeader2 header="Popular" className="font-normal text-xl w-full ml-10 mt-2" />
 
       </div>
       <ScrollScholarshipCardSimple list={listTest} />
 
       {/* Explore scholarship header */}
       <div className="flex justify-center mx-auto w-full bg-gray-100">
-        <BlockHeader2 header="Explore" className="font-normal text-xl w-full ml-10 mt-4" />
+        <BlockHeader2 header="Explore" className="font-normal text-xl w-full ml-10" />
       </div>
-      <div>
+
+      {/* Sorting for explore */}
+
+      {/* <div>
         <div className="flex justify-center mx-auto pb-2 w-full bg-gray-100">
           <ButtonActionText href="/" text="Athletics" />
           <span className="px-2"></span>
@@ -72,8 +72,9 @@ export default async function Home() {
             <AddCategoryIcon />
           </button>
         </div>
-      </div>
-      <div className="bg-gray-100">
+      </div> */}
+
+      <div className="bg-gray-100 mb-12">
         {exploreCards}
       </div>
     </div>
