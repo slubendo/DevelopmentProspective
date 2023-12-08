@@ -61,6 +61,7 @@ export default async function Home() {
             Generate New Scholarships
           </Link>
         </button>
+        
         <NoScroll/>
       </div>
     )
