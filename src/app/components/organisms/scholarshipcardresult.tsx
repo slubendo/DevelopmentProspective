@@ -23,6 +23,8 @@ export default function ScholarshipCardResult(props: { title: string, content: s
     value = props.award;
   }
 
+  const string = props.href;
+
   const [index, setIndex] = useState(0);
   const [buttonToggle, setButtonToggle] = useState(false);
 
@@ -63,7 +65,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
           <div className="flex justify-between items-center p-2">
             <ValuesBlock header="Award" value={value} />
             <ValuesBlock header="Deadline" value={props.deadline} />
-            <ButtonActionText href={props.href} text="Details" />
+            <ButtonActionText href={string} text="Details" />
           </div>
           <div className="flex justify-center">
             <button className="text-center p-2 bg-azure-blue text-white text-xs font-medium py-2 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105" onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>
