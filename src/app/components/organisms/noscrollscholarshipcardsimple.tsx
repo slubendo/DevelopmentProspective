@@ -5,13 +5,11 @@ import { SessionUserType, sessionUser } from "@/app/action";
 
 export type Scholarship = { id: number, title: string, content: string, award: number | string, deadline: string, href: string, src: string, alt: string }
 
-export default async function ScrollScholarshipcardSimple(props: { list: Scholarship[] }) {
+export default async function NoScrollScholarshipcardSimple(props: { list: Scholarship[]}) {
   const user = sessionUser()
 
   const list = props.list;
   let x = 0;
-
-  await new Promise(resolve => setTimeout(resolve, 1000));
 
 
   //alright, so for this in particular, I would need to create a separate component for when this scholarshipcardsimple
@@ -22,13 +20,11 @@ export default async function ScrollScholarshipcardSimple(props: { list: Scholar
 
   return (
     <div className="bg-gray-100">
-
-      {/* Using fake data */}
       <ContainerFlex>
-
-        <div className="flex overflow-x-auto snap-x snap-mandatory" style={{ scrollSnapType: 'x mandatory', scrollPadding: '0 5%' }}>
+        {/* Stack items vertically */}
+        <div className="flex flex-col">
           {list.map((item, index) => (
-            <div key={index} className="snap-center shrink-0 mx-2 first:ml-[5%] last:mr-[5%]" style={{ width: '90vw', maxWidth: '90vw' }}>
+            <div key={index} className=" flex justify-center">
               <ScholarshipCardSimple
                 title={item.title}
                 content={item.content}
@@ -43,6 +39,5 @@ export default async function ScrollScholarshipcardSimple(props: { list: Scholar
         </div>
       </ContainerFlex>
     </div>
-
   )
 }

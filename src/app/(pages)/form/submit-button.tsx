@@ -1,11 +1,27 @@
-export default function SubmitButton() {
+interface SubmitButtonProps {
+  buttonMessage: string;
+}
+
+export default function SubmitButton({buttonMessage}:SubmitButtonProps) {
+
+
   return (
     <button
       type="submit"
-      className="block mx-auto p-3 bg-azure-blue text-white text-sm font-medium rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105"
-      style={{ width: "85%" }} 
+      className="w-full text-2xl bg-indigo-500 dark:bg-indigo-700 text-white p-3 rounded-xl shadow hover:bg-indigo-700 dark:hover:bg-indigo-800"
     >
-      Submit
-    </button>
-  );
+    {buttonMessage !== "Submit" ? (
+            <>
+              <span className="mr-2">{buttonMessage}</span>
+              <div className="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </>
+          ) : (
+            buttonMessage
+          )}    </button>
+  )
 }

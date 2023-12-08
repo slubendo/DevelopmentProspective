@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ScrollScholarshipCardSimple from './components/organisms/scrollscholarshipcardsimple';
 import ScrollScholarshipcardResult from './components/organisms/scrollscholarshipcardresult';
 import BlockHeader2 from './components/atoms/block/block-header-2';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import { auth } from '@/auth';
 import { getNonProfileScholarships } from './(pages)/profile/action';
+import SkeletonHorizontalScholarship from './components/organisms/skeletonhorizontalschorlarship';
 
 export default async function Home() {
 
@@ -53,7 +54,9 @@ export default async function Home() {
         <BlockHeader2 header="Popular" className="font-normal text-xl w-full ml-10 mt-2" />
 
       </div>
-      <ScrollScholarshipCardSimple list={listTest} />
+      <Suspense fallback={<SkeletonHorizontalScholarship />}>
+        <ScrollScholarshipCardSimple list={listTest} />
+      </Suspense>
 
       {/* Explore scholarship header */}
       <div className="flex justify-center mx-auto w-full bg-gray-100">
