@@ -9,7 +9,7 @@ export default function ProfileBlock(props: {
   if (typeof props.user === "string" && typeof props.subtitle === "string") {
     return (
       <div>
-        <p className="text-2xl font-medium">{props.user}</p>
+        <p className="text-2xl">{props.user}</p>
         <GreetingHeaderSubtitle text={props.subtitle} />
         <Link href="/api/auth/signout?callbackUrl=/">
           <div className="text-center bg-azure-blue text-white text-xs py-1 w-40 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105">
