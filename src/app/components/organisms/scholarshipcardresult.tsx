@@ -45,7 +45,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <div className=" w-3/4">
           {/* Scholarship title */}
           <TitleBlock header={props.title} />
-          <div className="flex h-16 overflow-y-auto text-xs text-gray-500">
+          <div className="flex h-16 overflow-y-auto text-xs text-dark-gray">
             {props.content}
           </div>
         </div>
@@ -63,8 +63,7 @@ export default function ScholarshipCardResult(props: { title: string, content: s
         <ValuesBlock header="Deadline" value={props.deadline} />
         <ButtonActionText href={props.href} text="Details" />
       </div>
-      <button onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>{messageArray[index]}</button>
-
+      <button className="text-center p-2 bg-azure-blue text-white text-xs font-medium py-2 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105" onClick={handleClick} disabled={buttonToggle} aria-disabled={buttonToggle}>{messageArray[index]}</button>
     </ContainerCard>
   )
 }

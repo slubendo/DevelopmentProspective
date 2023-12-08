@@ -1,23 +1,15 @@
-export default function TabButton(props: {tab: string, focus: boolean}) {
-
-  let color;
-  let roundedStyles;
-
-  if(props.focus) {
-      color = "text-white bg-blue-500 border shadow-lg p-4 md:hover:bg-blue-800";
-  } else {
-      color = "text-blue-500 bg-white border shadow-lg p-4 md:hover:bg-gray-200";
-  }
-
-  if (props.tab === "Saved") {
-      roundedStyles = "rounded-l-lg"; // Round left
-  } else if (props.tab === "Applied") {
-      roundedStyles = "rounded-r-lg"; // Round right
-  }
-
-  return (
+export default function TabButton(props: { tab: string; focus: boolean }) {
+    return (
       <div className="text-2xl">
-          <p className={`${color} ${roundedStyles}`}>{props.tab}</p>
+        <p
+          className={`inline-block px-5 pb-0.1 transition-all duration-300 ${
+            props.focus
+              ? 'text-azure-blue border-b-2 border-azure-blue transform scale-105'
+              : 'text-soft-black opacity-75 hover:text-azure-blue hover:border-azure-blue transform hover:scale-105'
+          }`}
+        >
+          {props.tab}
+        </p>
       </div>
-  )
-}
+    );
+  }
