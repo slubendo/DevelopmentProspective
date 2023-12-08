@@ -21,3 +21,7 @@ p, h1, h2, h3, h4, button, div {
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+div::-webkit-scrollbar {
+  display: none;
+}

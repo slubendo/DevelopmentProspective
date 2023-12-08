@@ -13,7 +13,7 @@ export default function IconButtonDelete(props: {id: number}) {
     }
 
     return (
-            <button className="bg-blue-400" onClick={handleClick}>
+            <button className="" onClick={handleClick}>
                 <DeleteIcon />
             </button>
     )
