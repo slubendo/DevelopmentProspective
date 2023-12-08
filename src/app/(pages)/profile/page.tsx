@@ -56,7 +56,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="flex flex-col rounded-xl mx-auto w-full 
-    overflow-scroll md:flex-row md:overflow-x-auto md:w-5/6 md:mt-[100px] md:h-auto">
+    overflow-scroll mb-14 md:flex-row md:overflow-x-auto md:w-5/6 md:mt-[100px] md:h-auto">
       <div>
         <ProfileUserCard />
       </div>

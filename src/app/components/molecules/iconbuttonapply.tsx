@@ -14,7 +14,7 @@ export default function IconButtonApply(props: {id: number, isApplied: boolean})
 
     if(props.isApplied) {
         return (
-            <button className="bg-blue-400" onClick={handleClick}>
+            <button className="" onClick={handleClick}>
                 <StarFilledIcon />
             </button>
         )

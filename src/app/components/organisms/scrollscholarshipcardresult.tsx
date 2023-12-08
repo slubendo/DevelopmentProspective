@@ -40,7 +40,6 @@ export default function ScrollScholarshipcardResult(props: { list: Scholarship[]
 
       {/* Using fake data */}
       <ContainerFlex>
-
         <div className="flex overflow-x-auto snap-x snap-mandatory" style={{ scrollSnapType: 'x mandatory', scrollPadding: '0 5%' }}>
           {result}
         </div>

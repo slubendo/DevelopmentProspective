@@ -27,9 +27,10 @@ export default function ScholarshipCardSimple(props: { title: string, content: s
       {/* Scholarship block container */}
       <div className="flex pl-2">
         <div className=" w-3/4">
+          
           {/* Scholarship title */}
           <TitleBlock header={props.title} />
-          <div className="flex h-16 overflow-y-auto text-xs text-gray-500">
+          <div className="flex h-16 overflow-hidden text-xs text-dark-gray">
             {props.content}
           </div>
         </div>

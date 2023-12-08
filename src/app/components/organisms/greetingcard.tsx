@@ -17,7 +17,7 @@ export default async function GreetingCard() {
 
     return (
         <div className="flex flex-row items-center w-full p-4 md:w-7/8 m-auto bg-white">
-          <div className="flex px-2">
+          <div className="flex px-5">
             <GreetingBlock greeting="Hello" user={name} subtitle="Welcome to Prospective!" />
           </div>
           <div className="ml-auto">

@@ -1,11 +1,10 @@
-import BlockHeader4 from "../atoms/block/block-header-4"
-import BlockContentValue from "../atoms/block/block-content-value"
+import BlockContentValue from "../atoms/block/block-content-value";
 
-export default function ValuesBlock(props: {header: string, value: string}) {
-    return (
-        <div className="flex flex-col justify-start items-start">
-            <BlockHeader4 header={props.header} />
-            <BlockContentValue value={props.value} />
-        </div>
-    )
+export default function ValuesBlock(props: { header: string, value: string }) {
+  return (
+    <div className="flex flex-col justify-start items-start">
+      <h4 className="text-soft-black mb-1">{props.header}</h4>
+      <BlockContentValue value={props.value} />
+    </div>
+  );
 }

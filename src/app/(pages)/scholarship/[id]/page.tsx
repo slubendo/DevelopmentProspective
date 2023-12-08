@@ -11,7 +11,7 @@ export default function ScholarshipPage({params}: {params: {id: string }}) {
   const scholarship = scholarshipData[Number(params.id)]
 
   return (
-    <div className="flex flex-col justify-center place-items-center md:mt-[100px]">
+    <div className="flex flex-col justify-center items-center md:mt-[100px]">
       <TitleBlock 
         header={scholarship.title}
         content={scholarship.provider}

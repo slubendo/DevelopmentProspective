@@ -120,20 +120,18 @@ export default function SubmitForm() {
 
   return (
     <div className="pb-24 md:pt-24">
-      <BlockHeader2 header="Prospective Info" />
-      {/* <div className="relative h-64 bg-white">
-        <div
-          className="absolute inset-0 bg-cover bg-center filter  grayscale-0 transition duration-300 animate-pulse"
-          style={{ backgroundImage: 'url("/Logo.png")' }}
-        ></div>
-      </div> */}
-      <form className="space-y-5" onSubmit={handleSubmit}>
-        <div className="flex flex-col space-y-1.5">
-          <BlockHeader3 header="What's your gender?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+      <div className="w-80 m-auto mt-4 font-medium border-b-4 border-solid border-azure-blue">
+        <BlockHeader3 header="Provide us with information to cater to your requirements." />
+      </div>
+      <form className="space-y-5 mt-5" action={"/form/output"}>
+      
+        <div className="items-center mx-auto max-w-[85%]">
+            <BlockHeader3 header="What's your gender?" />
+          <select className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
             value={formData.gender}
             onChange={handleChangeForm}
             name="gender"
+            
           >
             <option value="">
 
@@ -149,19 +147,20 @@ export default function SubmitForm() {
             </option>
           </select>
         </div>
-        <div>
-          <BlockHeader3 header="What's your ethnicity?" />
+
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What's your ethnicity?" />
           <input
             name="ethnicity"
             type="text"
             onChange={handleChangeForm}
             value={formData.ethnicity}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
           />
         </div>
-        <div className="flex flex-col space-y-1.5">
-          <BlockHeader3 header="Are you Indigenous?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="Are you Indigenous?" />
+          <select className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
             value={formBoolData.indigenous}
             onChange={handleChange}
             name="indigenous"
@@ -177,9 +176,9 @@ export default function SubmitForm() {
             </option>
           </select>
         </div>
-        <div className="flex flex-col space-y-1.5">
-          <BlockHeader3 header="Do you have a disability?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="Do you have a disability?" />
+          <select className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
             value={formBoolData.disability}
             onChange={handleChange}
             name="disability"
@@ -195,19 +194,19 @@ export default function SubmitForm() {
             </option>
           </select>
         </div>
-        <div>
-          <BlockHeader3 header="What's your highest level of education?" />
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What's your highest level of education?" />
           <input
             name="level of education"
             type="text"
             onChange={handleChangeForm}
             value={formData["level of education"]}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
           />
         </div>
-        <div className="flex flex-col space-y-1.5">
-          <BlockHeader3 header="What's your income level?" />
-          <select className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What's your income level?" />
+          <select className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
             value={formData["income level"]}
             onChange={handleChangeForm}
             name="income level"
@@ -226,34 +225,34 @@ export default function SubmitForm() {
             </option>
           </select>
         </div>
-        <div>
-          <BlockHeader3 header="What sports are you in?" />
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What sports are you in?" />
           <input
             name="sports"
             type="text"
             onChange={handleChangeForm}
             value={formData.sports}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
           />
         </div>
-        <div>
-          <BlockHeader3 header="What field of study are you in, or planning on being in?" />
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What field of study are you in, or planning on being in?" />
           <input
             name="field of study"
             type="text"
             onChange={handleChangeForm}
             value={formData["field of study"]}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
           />
         </div>
-        <div>
-          <BlockHeader3 header="What religion do you practice?" />
+        <div className="items-center mx-auto max-w-[85%]">
+        <BlockHeader3 header="What religion do you practice?" />
           <input
             name="religion"
             type="text"
             onChange={handleChangeForm}
             value={formData.religion}
-            className="mt-1 block w-full py-2 px-3 border-none bg-gray-100 dark:bg-gray-900 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 dark:hover:bg-blue-900 dark:focus:bg-blue-900 focus:ring-0"
+            className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
           />
         </div>
         <button
