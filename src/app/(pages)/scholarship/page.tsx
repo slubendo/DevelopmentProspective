@@ -15,6 +15,7 @@ import { getNonProfileScholarships } from '../profile/action';
 import { Scholarship } from '@/app/components/organisms/scrollscholarshipcardsimple';
 import { Suspense } from 'react';
 import NoScrollScholarshipcardSimple from '@/app/components/organisms/noscrollscholarshipcardsimple';
+import NoScrollScholarshipcardResult from '@/app/components/organisms/noscrollscholarshipcardresult';
 import SkeletonVerticalScholarship from '@/app/components/organisms/skeletonverticalscholarship';
 import SkeletonHorizontalScholarship from '@/app/components/organisms/skeletonhorizontalschorlarship';
 
@@ -56,7 +57,9 @@ export default async function Home() {
 
           <ScrollScholarshipcardResult list={databaseList} />
           <BlockHeader2 header="Explore Scholarships" />
-          <ScrollScholarshipcardResult list={exploreList} />
+          <Suspense fallback={<SkeletonHorizontalScholarship />}>
+            <NoScrollScholarshipcardResult list={exploreList} />
+          </Suspense>
         </div>
       </div>
     )
