@@ -119,7 +119,11 @@ export default function SubmitForm() {
 
   return (
     <div className="pb-24 md:pt-24">
-      <form className="space-y-5 mt-10" action={"/form/output"}>
+      <div className="w-80 m-auto mt-4 font-medium border-b-4 border-solid border-azure-blue">
+        <BlockHeader3 header="Provide us with information to cater to your requirements." />
+      </div>
+      <form className="space-y-5 mt-5" action={"/form/output"}>
+      
         <div className="items-center mx-auto max-w-[85%]">
             <BlockHeader3 header="What's your gender?" />
           <select className="mt-1 block w-full py-2 px-3 border-2 border-blue-ish-gray bg-white h-11 rounded-lg hover:bg-blue-100"
