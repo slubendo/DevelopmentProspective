@@ -42,8 +42,8 @@ export default async function Home() {
 
     return (
       <div className="md:mt-[100px]">
-        <h1 className="text-4xl font-medium text-center text-azure-blue p-2 mt-5">Scholarships</h1>
-        <div className="justify-center mt-4">
+        <h1 className="text-4xl font-medium text-center text-azure-blue p-2 my-2">Scholarships</h1>
+        {/* <div className="justify-center mt-4">
           <div className="relative ml-10 mr-10">
             <input
               type="text"
@@ -51,8 +51,8 @@ export default async function Home() {
               className="p-2 pl-10 border border-blue-ish-gray rounded-md w-full focus:border-azure-blue focus:outline-none"
             />
           </div>
-        </div>
-        <button className='text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mt-7 ml-10'>
+        </div> */}
+        <button className='flex justify-center text-center p-2 bg-azure-blue text-white text-xs font-medium py-2.5 px-6 rounded-full transition-transform ease-in-out duration-300 transform hover:scale-105 mx-auto'>
           <Link href="/form">
             Generate New Scholarships
           </Link>
