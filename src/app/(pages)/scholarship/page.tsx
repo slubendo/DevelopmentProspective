@@ -53,8 +53,7 @@ export default async function Home() {
               Generate New Scholarships
             </Link>
           </button>
-          <div className="justify-center mx-auto w-full pt-4 bg-gray-100 rounded-t-[80px]">
-
+          <div className="justify-center mx-auto w-full pt-16 bg-gray-100 rounded-t-[80px]">
           <ScrollScholarshipcardResult list={databaseList} />
           <BlockHeader2 header="Explore Scholarships" />
           <Suspense fallback={<SkeletonHorizontalScholarship />}>
@@ -73,7 +72,7 @@ export default async function Home() {
             Generate New Scholarships
           </Link>
         </button>
-        <div className="justify-center mx-auto w-full pt-4 bg-gray-100 rounded-t-[80px]">
+        <div className="justify-center mx-auto w-full pt-16 bg-gray-100 rounded-t-[80px]">
         <BlockHeader2 header="Explore Scholarships" />
         <Suspense fallback={<SkeletonHorizontalScholarship />}>
           <NoScrollScholarshipcardSimple list={exploreList} />
