@@ -7,6 +7,8 @@ import SubmitButton from "./submit-button"
 
 import BlockHeader2 from "@/app/components/atoms/block/block-header-2"
 import BlockHeader3 from "@/app/components/atoms/block/block-header-3"
+import { redirect } from "next/navigation"
+import { useRouter } from 'next/navigation';
 
 export type UserForm = {
     "gender": string | null,
@@ -21,6 +23,7 @@ export type UserForm = {
 }
 
 export default function SubmitForm() {
+  const router = useRouter();
     //disability, ethnicity, field of study, religion, level of education, income level, sports, gender, LGBTQ+, indigenious
   const [formData, setFormData] = useState({
     "gender": "",
@@ -69,14 +72,50 @@ export default function SubmitForm() {
     
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
 
-  //   e.preventDefault()
-  //   const submission = { ...formData }
+    e.preventDefault()
+    
+    const res = await fetch("/api/ai", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
 
-  //   console.log(submission);
-  //   sendJSON(submission);
-  // }
+    const reader = res.body?.getReader()
+
+    if (!reader) {
+      console.error("error getting result")
+      return
+    }
+
+    try {
+
+    
+    const decoder = new TextDecoder("utf-8")
+    let result = ""
+
+    while (true) {
+      const { done, value } = await reader.read()
+
+      if (done) {
+        break
+      }
+
+      console.log(decoder.decode(value))
+    }
+  } catch (e) {
+    console.error(e)
+  }
+
+  console.log('maybe we\'re good')
+
+    // redirect 
+    // use router redirect 
+    router.push('/scholarship');
+  }
 
   return (
     <div className="pb-24 md:pt-24">
