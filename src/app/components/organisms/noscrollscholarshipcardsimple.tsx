@@ -11,8 +11,6 @@ export default async function NoScrollScholarshipcardSimple(props: { list: Schol
   const list = props.list;
   let x = 0;
 
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
 
   //alright, so for this in particular, I would need to create a separate component for when this scholarshipcardsimple
   //exists inside the tabs of the profile. When it does, it will have two extra buttons, alongside details.

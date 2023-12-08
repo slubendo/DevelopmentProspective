@@ -11,8 +11,7 @@ export default async function ScrollScholarshipcardSimple(props: { list: Scholar
   const list = props.list;
   let x = 0;
 
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
 
   //alright, so for this in particular, I would need to create a separate component for when this scholarshipcardsimple
